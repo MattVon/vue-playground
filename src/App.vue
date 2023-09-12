@@ -38,19 +38,20 @@
     </v-app-bar>
 
     <v-main>
-      <HelloWorld/>
+      <!-- <HelloWorld/> -->
+      <dynamic-data-table />
     </v-main>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
+import DynamicDataTable from './components/DynamicDataTable.vue';
 
 export default {
   name: 'App',
 
   components: {
-    HelloWorld,
+    DynamicDataTable,
   },
 
   data: () => ({
