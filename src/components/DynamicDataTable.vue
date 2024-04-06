@@ -12,7 +12,7 @@
 
 <script>
 import Payload from "../data/payload.json";
-import { camelCase } from "lodash";
+import {camelCase} from "lodash";
 
 export default {
   data() {
@@ -24,10 +24,10 @@ export default {
   computed: {
     computedHeaders() {
       const columns = this.payload.metadata.template.columns;
-      let headers = [];
+      const headers = [];
       let header = {};
 
-      columns.forEach(column => {
+      columns.forEach((column) => {
         let value = camelCase(column.dataItem.fieldName);
         const dataType = column.dataItem.subDataType??column.dataItem.dataType;
 
@@ -37,10 +37,10 @@ export default {
           case "DateTime?":
             break;
           case "WorkListPatient":
-            value = `${value}.microBannerDisplayValues`
+            value = `${value}.microBannerDisplayValues`;
             break;
           default:
-            value = `${value}.name`
+            value = `${value}.name`;
             break;
         }
 
@@ -57,9 +57,9 @@ export default {
       return headers;
     },
     computedItems() {
-      let items = [];
+      const items = [];
 
-      Payload.payload.forEach(item => {
+      Payload.payload.forEach((item) => {
         // for (const property in item) {
         //   //const matchedColumn = this.payload.metadata.template.columns.find(column => column.dataItem.fieldName === property);
 
@@ -78,7 +78,7 @@ export default {
 
       console.debug(items);
       return items;
-    }
-  }
+    },
+  },
 };
 </script>
